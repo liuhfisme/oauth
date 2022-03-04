@@ -1,0 +1,39 @@
+server:
+  port: 8080
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: DEBUG
+    org.springframework.boot.autoconfigure: DEBUG
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientName: GitHub 登录
+            clientId: db392611c29b1a4b87d2
+            clientSecret: 98021e50d849cde6a7a15826f23a99046e0ba725
+#            redirectUri: "{baseUrl}/register/social/{registrationId}"
+          qq:
+            clientName: QQ 登录
+            clientId: x
+            clientSecret: x
+            provider: qq
+            authorizationGrantType: authorization_code
+            clientAuthenticationMethod: post
+            scope:
+              - get_user_info
+              - list_album
+              - upload_pic
+              - do_like
+            redirectUri: "{baseUrl}/register/social/{registrationId}"
+        provider:
+          qq:
+            authorizationUri: https://graph.qq.com/oauth2.0/authorize
+            tokenUri: https://graph.qq.com/oauth2.0/token
+            # 配置为 QQ 获取 OpenId 的 URL
+            userInfoUri: https://graph.qq.com/oauth2.0/me
+            userNameAttribute: "nickname"
