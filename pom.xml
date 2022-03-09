@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>oauth-3rd</module>
+        <module>oauth-server</module>
     </modules>
 
     <properties>
